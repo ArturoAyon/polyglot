@@ -1,7 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
-from sqlalchemy import Column, ForeignKey, Enum
-from sqlalchemy import Integer, String
+from sqlalchemy import Column, ForeignKey, Enum, Integer, String
 from sqlalchemy.orm import relationship
 
 db = SQLAlchemy()
