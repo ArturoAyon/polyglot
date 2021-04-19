@@ -28,7 +28,6 @@ class Dictionaries(db.Model):
     description = Column(db.String(255), nullable=False)
     status = Column(db.Enum("ACTIVE", "INACTIVE"), default="ACTIVE")
     languageId = Column(db.Integer, ForeignKey('languages.id'), nullable=False)
-    language = relationship("Languages", backref="Dictionaries")
     words = relationship(
         "Words", backref="Dictionaries", lazy='dynamic')
 
@@ -48,7 +47,6 @@ class Words(db.Model):
                          "LEARNED"), default="ACTIVE")
     dictionaryId = Column(db.Integer, ForeignKey(
         'dictionaries.id'), nullable=False)
-    dictionary = relationship("Dictionaries", backref="Words")
 
 
 class WordsSchema(ma.Schema):

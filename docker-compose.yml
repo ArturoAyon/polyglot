@@ -1,0 +1,21 @@
+version: ''
+services:
+  app:
+    build: ./application
+    ports:
+      - 5000:5000
+    depends_on:   
+      - db
+
+  db:
+    image: mysql:5.7.22
+    restart: always   
+    environment:
+         MYSQL_DATABASE: polyglot
+         MYSQL_ROOT_PASSWORD: root
+    ports:
+        - "33067:3306"
+        
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+
+   
